@@ -1,5 +1,7 @@
 # notsca.red
 
+https://notsca.red/
+
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
