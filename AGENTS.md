@@ -1,5 +1,15 @@
 # Agent Style
 
+## Ticket system with `tk`
+
+This project uses a CLI ticket system for task management.
+
+When you are asked to do something, you should first log it as a ticket using `tk`, before you start work on it, and when you get to the end of a task, see the list of tickets to figure out if there is more work to do.
+
+Run `tk help` if you are unaware how `tk` works.
+
+When given a set of tasks, **continue working until ALL tasks are complete**. Do not stop to ask for confirmation between tasks. Execute the full plan.
+
 ## Database Migrations
 
 This project uses Drizzle ORM with SQLite. When adding/modifying database schema:
