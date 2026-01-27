@@ -49,31 +49,21 @@ export default function Login() {
     <main className="auth-container">
       <h1 className="auth-title">Login</h1>
 
-      {errorMessage && (
-        <div className="alert alert-error">{errorMessage}</div>
-      )}
+      {errorMessage && <div className="alert alert-error">{errorMessage}</div>}
 
       <Form method="post">
         <div className="form-group">
-          <label htmlFor="email" className="form-label">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="input"
-          />
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input type="email" id="email" name="email" required className="input" />
         </div>
 
         <div className="form-group">
-          <label htmlFor="password" className="form-label">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            className="input"
-          />
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input type="password" id="password" name="password" required className="input" />
         </div>
 
         <button type="submit" className="btn btn-primary w-full">
@@ -84,7 +74,7 @@ export default function Login() {
       <p className="mt-4 text-sm text-center text-gray-600">
         Need an account? Get an invite link from a member.
       </p>
-      
+
       <p className="mt-2 text-sm text-center">
         <Link to="/" className="underline hover:no-underline">
           Back to home

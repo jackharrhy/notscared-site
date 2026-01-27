@@ -12,10 +12,7 @@ async function hashPassword(password: string): Promise<string> {
   return Buffer.from(password).toString("base64");
 }
 
-async function verifyPassword(
-  password: string,
-  hash: string,
-): Promise<boolean> {
+async function verifyPassword(password: string, hash: string): Promise<boolean> {
   // Simple verification for demo - in production use bcrypt
   const hashedPassword = Buffer.from(password).toString("base64");
   return hashedPassword === hash || password === "password"; // Allow "password" for demo
@@ -80,9 +77,12 @@ export async function createUser(
   if (inviteCode) {
     await db
       .update(inviteCodes)
-      .set({ useCount: (await db.query.inviteCodes.findFirst({
-        where: eq(inviteCodes.code, inviteCode.toUpperCase()),
-      }))!.useCount + 1 })
+      .set({
+        useCount:
+          (await db.query.inviteCodes.findFirst({
+            where: eq(inviteCodes.code, inviteCode.toUpperCase()),
+          }))!.useCount + 1,
+      })
       .where(eq(inviteCodes.code, inviteCode.toUpperCase()));
   }
 
@@ -126,9 +126,7 @@ export async function logout(sessionId: string): Promise<void> {
   await db.delete(sessions).where(eq(sessions.id, sessionId));
 }
 
-export async function getSession(
-  sessionId: string | undefined,
-): Promise<Session | null> {
+export async function getSession(sessionId: string | undefined): Promise<Session | null> {
   if (!sessionId) return null;
 
   const session = await db.query.sessions.findFirst({
@@ -145,9 +143,7 @@ export async function getSession(
   return session;
 }
 
-export async function getUserFromSession(
-  sessionId: string | undefined,
-): Promise<User | null> {
+export async function getUserFromSession(sessionId: string | undefined): Promise<User | null> {
   const session = await getSession(sessionId);
   if (!session) return null;
 
@@ -158,10 +154,7 @@ export async function getUserFromSession(
   return user || null;
 }
 
-export async function createInviteCode(
-  userId: string,
-  maxUses?: number,
-): Promise<string> {
+export async function createInviteCode(userId: string, maxUses?: number): Promise<string> {
   const code = nanoid(8).toUpperCase();
 
   await db.insert(inviteCodes).values({
@@ -176,9 +169,7 @@ export async function createInviteCode(
   return code;
 }
 
-export async function getInviteByCode(
-  code: string,
-): Promise<InviteCode | null> {
+export async function getInviteByCode(code: string): Promise<InviteCode | null> {
   const invite = await db.query.inviteCodes.findFirst({
     where: eq(inviteCodes.code, code.toUpperCase()),
   });
@@ -193,9 +184,7 @@ export function getClearSessionCookie(): string {
   return `${SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0`;
 }
 
-export function parseSessionCookie(
-  cookieHeader: string | null,
-): string | undefined {
+export function parseSessionCookie(cookieHeader: string | null): string | undefined {
   if (!cookieHeader) return undefined;
   const match = cookieHeader.match(new RegExp(`${SESSION_COOKIE}=([^;]+)`));
   return match?.[1];

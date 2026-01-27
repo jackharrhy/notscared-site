@@ -1,6 +1,13 @@
 import { Form, redirect, useActionData, useLoaderData, Link } from "react-router";
 import type { Route } from "./+types/register";
-import { createUser, getSessionCookie, login, parseSessionCookie, getUserFromSession, getInviteByCode } from "~/lib/auth.server";
+import {
+  createUser,
+  getSessionCookie,
+  login,
+  parseSessionCookie,
+  getUserFromSession,
+  getInviteByCode,
+} from "~/lib/auth.server";
 
 export async function loader({ request }: Route.LoaderArgs) {
   const sessionId = parseSessionCookie(request.headers.get("Cookie"));
@@ -69,26 +76,22 @@ export default function Register() {
     <main className="auth-container">
       <h1 className="auth-title">Register</h1>
 
-      {actionData?.error && (
-        <div className="alert alert-error">{actionData.error}</div>
-      )}
+      {actionData?.error && <div className="alert alert-error">{actionData.error}</div>}
 
       <Form method="post">
         <input type="hidden" name="inviteCode" value={code || ""} />
-        
+
         <div className="form-group">
-          <label htmlFor="email" className="form-label">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="input"
-          />
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input type="email" id="email" name="email" required className="input" />
         </div>
 
         <div className="form-group">
-          <label htmlFor="username" className="form-label">Username</label>
+          <label htmlFor="username" className="form-label">
+            Username
+          </label>
           <input
             type="text"
             id="username"
@@ -101,7 +104,9 @@ export default function Register() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="password" className="form-label">Password</label>
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
           <input
             type="password"
             id="password"
