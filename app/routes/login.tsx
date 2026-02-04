@@ -13,10 +13,10 @@ export async function loader({ request }: Route.LoaderArgs) {
 
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
-  const email = formData.get("email") as string;
+  const username = formData.get("username") as string;
   const password = formData.get("password") as string;
 
-  const result = await login(email, password);
+  const result = await login(username, password);
 
   if (result.error) {
     return { error: result.error };
@@ -48,14 +48,14 @@ export default function Login() {
   return (
     <main className="min-h-screen flex items-center justify-center">
       <div className="w-full max-w-xs">
-        {errorMessage && <div className="alert alert-error mb-4">{errorMessage}</div>}
+        {errorMessage && <div className="alert alert-error">{errorMessage}</div>}
 
         <Form method="post">
           <div className="form-group">
-            <label htmlFor="email" className="form-label">
-              Email
+            <label htmlFor="username" className="form-label">
+              Username
             </label>
-            <input type="email" id="email" name="email" required className="input" />
+            <input type="text" id="username" name="username" required className="input" />
           </div>
 
           <div className="form-group">
@@ -70,8 +70,8 @@ export default function Login() {
           </button>
         </Form>
 
-        <p className="mt-4 text-sm text-center">
-          <Link to="/" className="underline hover:no-underline">
+        <p className="pt-4 text-sm text-center">
+          <Link to="/" className="underline decoration-black/50 hover:decoration-black/25">
             Back to home
           </Link>
         </p>

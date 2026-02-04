@@ -11,6 +11,10 @@ body {
   @apply bg-white text-black;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Auth form styles */
 .auth-container {
   max-width: 360px;

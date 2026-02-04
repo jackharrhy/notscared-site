@@ -73,62 +73,64 @@ export default function Register() {
   const actionData = useActionData<typeof action>();
 
   return (
-    <main className="auth-container">
-      <h1 className="auth-title">Register</h1>
+    <main className="min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-xs">
+        <h1 className="text-xl font-medium text-center pb-6">Register</h1>
 
-      {actionData?.error && <div className="alert alert-error">{actionData.error}</div>}
+        {actionData?.error && <div className="alert alert-error">{actionData.error}</div>}
 
-      <Form method="post">
-        <input type="hidden" name="inviteCode" value={code || ""} />
+        <Form method="post">
+          <input type="hidden" name="inviteCode" value={code || ""} />
 
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input type="email" id="email" name="email" required className="input" />
-        </div>
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input type="email" id="email" name="email" required className="input" />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="username" className="form-label">
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            required
-            pattern="[a-zA-Z0-9_]+"
-            className="input"
-          />
-          <div className="form-help">Letters, numbers, and underscores only</div>
-        </div>
+          <div className="form-group">
+            <label htmlFor="username" className="form-label">
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              pattern="[a-zA-Z0-9_]+"
+              className="input"
+            />
+            <div className="form-help">Letters, numbers, and underscores only</div>
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            minLength={8}
-            className="input"
-          />
-          <div className="form-help">At least 8 characters</div>
-        </div>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              minLength={8}
+              className="input"
+            />
+            <div className="form-help">At least 8 characters</div>
+          </div>
 
-        <button type="submit" className="btn btn-primary w-full">
-          Create Account
-        </button>
-      </Form>
+          <button type="submit" className="btn btn-primary w-full">
+            Create Account
+          </button>
+        </Form>
 
-      <p className="mt-4 text-sm text-center">
-        Already have an account?{" "}
-        <Link to="/login" className="underline hover:no-underline">
-          Login
-        </Link>
-      </p>
+        <p className="pt-4 text-sm text-center">
+          Already have an account?{" "}
+          <Link to="/login" className="underline decoration-black/50 hover:decoration-black/25">
+            Login
+          </Link>
+        </p>
+      </div>
     </main>
   );
 }

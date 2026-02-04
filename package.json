@@ -13,7 +13,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "create-user": "tsx scripts/create-user.ts"
   },
   "dependencies": {
     "@react-router/node": "7.13.0",
@@ -37,6 +38,7 @@
     "oxfmt": "^0.27.0",
     "oxlint": "^1.42.0",
     "tailwindcss": "^4.1.18",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
     "vite-tsconfig-paths": "^6.0.5"

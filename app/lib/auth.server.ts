@@ -90,20 +90,20 @@ export async function createUser(
 }
 
 export async function login(
-  email: string,
+  username: string,
   password: string,
 ): Promise<{ session?: Session; error?: string }> {
   const user = await db.query.users.findFirst({
-    where: eq(users.email, email),
+    where: eq(users.username, username),
   });
 
   if (!user) {
-    return { error: "Invalid email or password" };
+    return { error: "Invalid username or password" };
   }
 
   const valid = await verifyPassword(password, user.passwordHash);
   if (!valid) {
-    return { error: "Invalid email or password" };
+    return { error: "Invalid username or password" };
   }
 
   // Create session

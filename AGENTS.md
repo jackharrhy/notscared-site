@@ -53,6 +53,20 @@ Add an entry to `drizzle/meta/_journal.json`:
 npm run db:migrate
 ```
 
+## Design System
+
+This project has a design system. **Before working on any frontend UI/UX tasks, read `app/routes/dev.design.tsx` for examples.**
+
+Key principles:
+- **Sharp edges**: No border-radius
+- **Borders**: Use `border` (1px), not `border-2`
+- **Spacing**: Prefer `flex` + `gap` over margins
+- **Buttons**: Always use `cursor-pointer`, underlined text actions with `underline decoration-black/50 hover:decoration-black/25`
+- **Danger actions**: Use `text-red-600 underline decoration-red-600/50 hover:decoration-red-600/25`
+- **Links**: Same underline pattern as buttons
+- **Layout**: `min-h-screen flex` for centered pages, `p-8 max-w-4xl mx-auto` for content pages
+- **Tables**: `border` wrapper, `border-b` on thead, `divide-y` on tbody, no background colors
+
 ## Session Completion
 
 **When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until your work is in the local main branch.
