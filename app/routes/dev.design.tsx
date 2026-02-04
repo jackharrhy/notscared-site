@@ -244,6 +244,33 @@ export default function DevDesign() {
           </li>
         </ul>
       </section>
+
+      {/* Component Libraries */}
+      <section>
+        <h2 className="text-lg font-semibold mb-4">Component Libraries</h2>
+        <ul className="text-sm space-y-2 text-gray-600">
+          <li>
+            <strong className="text-black">Base UI:</strong> Unstyled headless components from{" "}
+            <a
+              href="https://base-ui.com/"
+              className="underline decoration-black/50 hover:decoration-black/25"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              base-ui.com
+            </a>
+            . LLM docs:{" "}
+            <a
+              href="https://base-ui.com/llms.txt"
+              className="underline decoration-black/50 hover:decoration-black/25"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              base-ui.com/llms.txt
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
   );
 }

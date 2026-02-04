@@ -1,5 +1,9 @@
 # Agent Style
 
+## Package Manager
+
+This project uses **pnpm**, not npm. Use `pnpm install`, `pnpm add`, `pnpm run`, etc.
+
 ## Ticket system with `tk`
 
 This project uses a CLI ticket system for task management.
@@ -66,6 +70,15 @@ Key principles:
 - **Links**: Same underline pattern as buttons
 - **Layout**: `min-h-screen flex` for centered pages, `p-8 max-w-4xl mx-auto` for content pages
 - **Tables**: `border` wrapper, `border-b` on thead, `divide-y` on tbody, no background colors
+
+## Component Libraries
+
+This project uses **Base UI** (`@base-ui/react`) for headless UI components.
+
+- Docs: https://base-ui.com/
+- LLM-friendly docs: https://base-ui.com/llms.txt
+
+Use Base UI for dropdowns, selects, dialogs, and other interactive components. Style them to match the design system (sharp edges, borders, no background colors on interactive states).
 
 ## Session Completion
 

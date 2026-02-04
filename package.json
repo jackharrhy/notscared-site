@@ -17,6 +17,7 @@
     "create-user": "tsx scripts/create-user.ts"
   },
   "dependencies": {
+    "@base-ui/react": "^1.1.0",
     "@react-router/node": "7.13.0",
     "@react-router/serve": "7.13.0",
     "better-sqlite3": "^12.6.2",
@@ -25,7 +26,8 @@
     "nanoid": "^5.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-router": "7.13.0"
+    "react-router": "7.13.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@react-router/dev": "7.13.0",

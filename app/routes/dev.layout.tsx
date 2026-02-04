@@ -39,12 +39,28 @@ export default function DevLayout() {
               Home
             </NavLink>
             <NavLink
+              to="/dev/projects"
+              className={({ isActive }) =>
+                isActive ? "text-black font-medium" : "text-gray-500 hover:text-black"
+              }
+            >
+              Projects
+            </NavLink>
+            <NavLink
               to="/dev/users"
               className={({ isActive }) =>
                 isActive ? "text-black font-medium" : "text-gray-500 hover:text-black"
               }
             >
               Users
+            </NavLink>
+            <NavLink
+              to="/dev/events"
+              className={({ isActive }) =>
+                isActive ? "text-black font-medium" : "text-gray-500 hover:text-black"
+              }
+            >
+              Activity
             </NavLink>
           </div>
         </div>

@@ -10,6 +10,10 @@ export default [
     route("dev", "routes/dev.index.tsx", { index: true }),
     route("dev/users", "routes/dev.users.tsx"),
     route("dev/users/create", "routes/dev.users.create.tsx"),
+    route("dev/projects", "routes/dev.projects.tsx"),
+    route("dev/projects/create", "routes/dev.projects.create.tsx"),
+    route("dev/projects/:name", "routes/dev.projects.$name.tsx"),
+    route("dev/events", "routes/dev.events.tsx"),
     route("dev/design", "routes/dev.design.tsx"),
   ]),
 ] satisfies RouteConfig;
