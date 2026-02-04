@@ -46,40 +46,36 @@ export default function Login() {
   }
 
   return (
-    <main className="auth-container">
-      <h1 className="auth-title">Login</h1>
+    <main className="min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-xs">
+        {errorMessage && <div className="alert alert-error mb-4">{errorMessage}</div>}
 
-      {errorMessage && <div className="alert alert-error">{errorMessage}</div>}
+        <Form method="post">
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input type="email" id="email" name="email" required className="input" />
+          </div>
 
-      <Form method="post">
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input type="email" id="email" name="email" required className="input" />
-        </div>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input type="password" id="password" name="password" required className="input" />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input type="password" id="password" name="password" required className="input" />
-        </div>
+          <button type="submit" className="btn btn-primary w-full">
+            Login
+          </button>
+        </Form>
 
-        <button type="submit" className="btn btn-primary w-full">
-          Login
-        </button>
-      </Form>
-
-      <p className="mt-4 text-sm text-center text-gray-600">
-        Need an account? Get an invite link from a member.
-      </p>
-
-      <p className="mt-2 text-sm text-center">
-        <Link to="/" className="underline hover:no-underline">
-          Back to home
-        </Link>
-      </p>
+        <p className="mt-4 text-sm text-center">
+          <Link to="/" className="underline hover:no-underline">
+            Back to home
+          </Link>
+        </p>
+      </div>
     </main>
   );
 }
