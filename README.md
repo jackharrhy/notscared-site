@@ -1,23 +1,14 @@
 # I'm Not Scared Of The Bad Guys Site
 
-## Getting Started
+Static coming-soon page in `public/`. No JavaScript, build step, database, or secrets required.
 
-### Installation
+## Run locally
 
-```bash
-pnpm install
+```sh
+docker build --pull -t notscared-site .
+docker run --rm -p 3000:3000 notscared-site
 ```
 
-### Development
+Open http://localhost:3000. Unknown paths return 404.
 
-```bash
-pnpm run dev
-```
-
-Then head to `http://localhost:5173`.
-
-## Building for Production
-
-```bash
-pnpm run build
-```
+Pushes to `main` publish `ghcr.io/jackharrhy/notscared-site:main` through the existing GitHub Actions workflow. Deployment is separate.
