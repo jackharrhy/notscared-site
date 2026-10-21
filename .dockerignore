@@ -1,8 +1,5 @@
-.git
-.env
-.env.*
-data
-.react-router
-build
-node_modules
-README.md
+**
+!Dockerfile
+!nginx.conf
+!public/
+!public/**
