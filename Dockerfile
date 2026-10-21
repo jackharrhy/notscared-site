@@ -1,6 +1,6 @@
-FROM node:24.22.1-alpine@sha256:6a1c190e17215d844926b0677f4bf87273ff7d5e54db06d3b5b5863ab0b09a3d AS base
+FROM node:24-alpine AS base
 RUN apk upgrade --no-cache && apk add --no-cache ca-certificates && update-ca-certificates
-RUN npm install -g pnpm@10.34.3
+RUN npm install -g pnpm@10
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
