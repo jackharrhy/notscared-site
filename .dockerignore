@@ -1,3 +1,7 @@
+.git
+.env
+.env.*
+data
 .react-router
 build
 node_modules
