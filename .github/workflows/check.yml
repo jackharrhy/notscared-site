@@ -23,8 +23,21 @@ jobs:
           persist-credentials: false
       - uses: jdx/mise-action@82a612c5ab8bcda7cc5db6b7e81a8e7584c3dc6e # v5.2.3
         with:
-          install_args: node@24.22.1 pnpm@10
-      - run: mise exec node@24.22.1 pnpm@10 -- pnpm install --frozen-lockfile
-      - run: mise exec node@24.22.1 pnpm@10 -- pnpm run lint
-      - run: mise exec node@24.22.1 pnpm@10 -- pnpm run typecheck
-      - run: mise exec node@24.22.1 pnpm@10 -- pnpm run build
+          install_args: node@26.12.1 pnpm@10
+      - run: mise exec node@26.12.1 -- npm install --global node-gyp@11.5.0
+      - run: mise exec node@26.12.1 pnpm@10 -- pnpm install --frozen-lockfile
+      - run: mise exec node@26.12.1 pnpm@10 -- pnpm run lint
+      - run: mise exec node@26.12.1 pnpm@10 -- pnpm run typecheck
+      - run: mise exec node@26.12.1 pnpm@10 -- pnpm run build
+
+  runtime:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: docker build -t notscared-runtime-check .
+      - run: sh scripts/check-runtime.sh notscared-runtime-check
