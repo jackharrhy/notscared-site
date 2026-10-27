@@ -1,11 +1,16 @@
-FROM node:24-alpine AS base
-RUN apk upgrade --no-cache && apk add --no-cache ca-certificates && update-ca-certificates
+FROM platformatic/node-caged:26-slim AS base
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends ca-certificates \
+    && update-ca-certificates && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 FROM base AS dependency-base
-RUN apk add --no-cache python3 make g++
+RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ \
+    && rm -rf /var/lib/apt/lists/*
+# V8 addons must use this runtime's pointer-compressed headers, not stock prebuilds.
+ENV npm_config_build_from_source=true npm_config_nodedir=/usr/local npm_config_jobs=2
 
 FROM dependency-base AS development-dependencies-env
 RUN pnpm install --frozen-lockfile
